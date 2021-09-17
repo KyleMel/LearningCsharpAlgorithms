@@ -10,7 +10,20 @@ namespace Stack
     {
         static void Main(string[] args)
         {
-            //TODO
+            Stack theStack = new Stack(4);
+            theStack.push("Star Wars");
+            theStack.push("Jaws");
+            theStack.push("Jaws 2");
+            theStack.push("Titanic");
+            theStack.push("Rocky");
+            WriteLine("============== \nAbout to peek:");
+            WriteLine("'" + theStack.peek() + "'" + " is at the top of the stack\n");
+            WriteLine("============== \nThe stack contains:\n");
+            while(!theStack.isEmpty())
+            {
+                string movie = theStack.pop();
+                WriteLine(movie);
+            }    
         }
     }
 
@@ -49,8 +62,11 @@ namespace Stack
                 return stackArray[old_top];
             }
         }
-
-        private bool isEmpty()
+        public string peek() 
+        {
+            return stackArray[top];
+        }
+        public bool isEmpty()
         {
             return (top == -1);
         }
