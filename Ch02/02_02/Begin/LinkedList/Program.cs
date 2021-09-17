@@ -13,5 +13,36 @@ namespace SinglyLinkedList
             //TODO
         }
     }
+    public class SingleLinkedList
+    {
+        private Node first;
+        public bool isEmtpy()
+        {
+            return (first == null);
+        }
+        public void insertFirst(int data)
+        {
+            Node newNode = new Node();
+            newNode.data = data;
+            newNode.next = first;
+            first = newNode;
+        }
+        public Node deleteFirst()
+        {
+            Node temp = first;
+            first = first.next;
+            return temp;
+        }
+    }
+    public class Node 
+    {
+        public int data;
+        public Node next;
+
+        public void displayNode()
+        {
+            Console.WriteLine("<" + data + ">");
+        }
+    }
 
 }
