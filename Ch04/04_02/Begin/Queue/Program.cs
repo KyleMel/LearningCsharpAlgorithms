@@ -6,7 +6,17 @@ namespace QueueDemo
     {
         static void Main(string[] args)
         {
-            //TODO
+            Queue myQueue = new Queue(5);
+            myQueue.insert(100);
+            myQueue.insert(10);
+            myQueue.insert(20);
+            myQueue.insert(30);
+            myQueue.view();
+            WriteLine($"Front of the queue is {myQueue.peekFront()} ");
+            WriteLine("About to remove an item from the queue");
+            myQueue.remove();
+            WriteLine($"Front of the queue is {myQueue.peekFront()} ");
+            ReadKey();
         }
     }
     public class Queue
@@ -53,7 +63,7 @@ namespace QueueDemo
             }
             return temp;
         }
-        public bool peekFront()
+        public long peekFront()
         {
             return myQueue[front];
         }
@@ -64,6 +74,15 @@ namespace QueueDemo
         private bool isFull()
         {
             return (items == maxSize);
+        }
+        public void view()
+        {
+            Write("[");
+            for (int i = 0; i < myQueue.Length; i++)
+            {
+                Write(myQueue[i] + " ");
+            }
+            WriteLine("]");
         }
     }
 }
